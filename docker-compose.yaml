@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  lambdci:
+    image: lambci/lambda:build-python3.7
+    volumes:
+      - $PWD:/var/task
+    command: > 
+      bash -c "pip install -r requirements.txt -t python/lib/python3.7/site-packages; exit"
+  awscli:
+    build: 
+      context: ./awscli
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+

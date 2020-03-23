@@ -1,0 +1,4 @@
+.env
+/wsgi/node_modules
+/wsgi/.serverless
+/python/*
